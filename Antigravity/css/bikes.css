@@ -1,0 +1,183 @@
+/* Bikes Page Specific Styles */
+
+.bikes-hero {
+    background: linear-gradient(135deg, #051b75 0%, #0a257a 100%);
+    padding: 100px 0 80px;
+    text-align: center;
+}
+
+.bikes-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.bikes-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bikes-catalog {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+    min-height: 70vh;
+}
+
+.catalog-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 100px;
+}
+
+.filter-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-title i {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+.filter-group {
+    margin-bottom: 32px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-group h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 16px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-option:hover {
+    padding-left: 4px;
+}
+
+.filter-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--accent-blue);
+}
+
+.radio-label {
+    font-size: 0.95rem;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.filter-option:hover .radio-label {
+    color: var(--accent-blue);
+}
+
+.filter-option input[type="radio"]:checked+.radio-label {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.radio-label i {
+    font-size: 1.1rem;
+}
+
+/* Bikes Grid */
+.bikes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Hide/Show bikes based on filter */
+.bike-card {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.bike-card.hidden {
+    display: none;
+}
+
+/* Responsive Design for Bikes Page */
+@media (max-width: 1200px) {
+    .catalog-wrapper {
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+    }
+
+    .bikes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 968px) {
+    .catalog-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-sidebar {
+        position: static;
+        margin-bottom: 30px;
+    }
+
+    .bikes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bikes-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .bikes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bikes-hero h1 {
+        font-size: 2rem;
+    }
+
+    .bikes-hero p {
+        font-size: 1rem;
+    }
+
+    .filter-sidebar {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,488 @@
+/* Bike Details Page Refactor */
+
+#bike-details-main {
+    min-height: 80vh;
+    padding-bottom: 60px;
+    background-color: #f9fbfd;
+    /* Light background for the whole page */
+}
+
+/* Loading & Error States */
+.loading-container,
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--accent-blue);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent-blue);
+}
+
+/* Hero Section */
+.details-hero {
+    background: #ffffff;
+    padding: 0 0 40px;
+    /* Padding bottom only */
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    /* Image wider than details */
+    gap: 60px;
+    align-items: start;
+}
+
+/* Hero Left: Image & Colors */
+.hero-image-container {
+    position: relative;
+    background: #f3f4f6;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.hero-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+}
+
+.colors-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.colors-container {
+    display: flex;
+    gap: 12px;
+}
+
+.color-option {
+    border: 1px solid #e5e5e5;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.color-option:hover {
+    border-color: var(--accent-blue);
+    background-color: #eff6ff;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.color-name {
+    font-size: 0.9rem;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+/* Hero Right: Info */
+.hero-right {
+    padding-top: 20px;
+}
+
+.category-tag {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.hero-right h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+.price-block {
+    margin-bottom: 30px;
+}
+
+.price-block .price {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.price-block .price-label {
+    font-size: 0.875rem;
+    color: #9ca3af;
+}
+
+/* Stats Box */
+.stats-box {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.stat-divider {
+    width: 1px;
+    background-color: #e5e5e5;
+}
+
+/* Features List */
+.features-summary {
+    margin-bottom: 30px;
+}
+
+.features-summary h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.features-checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.features-checklist li {
+    font-size: 0.9rem;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.features-checklist li::before {
+    content: "\eb7b";
+    /* RemixIcon check-line */
+    font-family: 'remixicon';
+    color: #10b981;
+    /* Green check */
+    font-weight: bold;
+}
+
+/* Action Buttons Grid */
+.action-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.btn-block {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+}
+
+.btn-outline-gray {
+    border: 1px solid #d1d5db;
+    color: #374151;
+    background: white;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-outline-gray:hover {
+    border-color: #9ca3af;
+    background-color: #f9fafb;
+}
+
+
+/* Content Section */
+.content-section {
+    padding: 60px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Main content vs Sidebar */
+    gap: 40px;
+}
+
+.section-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e7eb;
+}
+
+.section-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* Specs Table */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specs-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+}
+
+.specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.specs-table td:first-child {
+    color: #6b7280;
+    width: 40%;
+}
+
+.specs-table td:last-child {
+    color: #111827;
+    font-weight: 500;
+}
+
+/* Equipment Grid */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.equipment-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #374151;
+    background-color: #f9fafb;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.equipment-item i {
+    color: var(--accent-blue);
+    font-size: 1.1rem;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 100px;
+    /* Sticky sidebar */
+    height: fit-content;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.sidebar-card .btn {
+    margin-bottom: 12px;
+}
+
+.sidebar-card .btn:last-child {
+    margin-bottom: 0;
+}
+
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.in-stock {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.help-card p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* Similar Bikes Section */
+.similar-bikes-section {
+    padding: 0 0 80px;
+}
+
+.similar-bikes-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 30px;
+}
+
+.similar-bikes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .similar-bikes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image-container {
+        height: 300px;
+    }
+
+    .stats-box {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .pricing-block .price {
+        font-size: 1.8rem;
+    }
+}

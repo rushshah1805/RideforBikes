@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - RideIndia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .confirmation-section {
+            padding: 80px 20px;
+            background: #f9fafb;
+            min-height: calc(100vh - 400px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0fdf4;
+            color: #22c55e;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+        }
+
+        .confirmation-card h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #4b5563;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .enquiry-box {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+        }
+
+        .enquiry-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #1d4ed8;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .enquiry-id {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+
+        .next-steps {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .next-steps h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: #dbeafe;
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .step-text p {
+            color: #4b5563;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="ri-motorbike-line"></i>
+                <span>RideIndia</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="confirmation-section">
+        <div class="confirmation-card">
+            <div class="success-icon">
+                <i class="ri-checkbox-circle-fill"></i>
+            </div>
+            <h1>Message Sent!</h1>
+            <p class="subtitle">Thank you for reaching out to us.</p>
+
+            <div class="enquiry-box">
+                <span class="enquiry-label">Enquiry ID</span>
+                <span class="enquiry-id" id="enquiry-id">ENQ000000</span>
+            </div>
+
+            <div class="next-steps">
+                <h3>What happens next?</h3>
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <p>Your enquiry has been logged in our system and assigned to a support specialist.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <p>We will review your details and get back to you within 24 business hours.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <p>You'll receive an email confirmation with a copy of your request.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+                <a href="support.html" class="btn btn-secondary">Support Center</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 RideIndia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const enqId = urlParams.get('id');
+        if (enqId) {
+            document.getElementById('enquiry-id').textContent = enqId;
+        }
+    </script>
+</body>
+
+</html>

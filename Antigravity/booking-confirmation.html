@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed - RideIndia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/test-drive.css">
+    <style>
+        :root {
+            --accent-blue: #2563eb;
+            --bg-gray: #f9fafb;
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            background-color: white;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .confirmation-page {
+            background-color: white;
+            padding: 60px 0 80px;
+            min-height: 80vh;
+        }
+
+        .confirmation-card {
+            background-color: white;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .confirmation-card h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .note {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .conf-number-box {
+            background-color: #f9fafb;
+            border: 1px solid #f3f4f6;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .conf-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .conf-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .save-note {
+            display: block;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .next-steps {
+            background-color: #eff6ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .next-steps h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .next-steps ol {
+            text-align: left;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .next-steps li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #1e3a8a;
+            font-weight: 500;
+        }
+
+        .next-steps li::before {
+            counter-increment: step-counter;
+            content: counter(step-counter) ". ";
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 40px;
+        }
+
+        .btn-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            font-weight: 600;
+        }
+
+        .immediate-assistance {
+            margin-bottom: 60px;
+        }
+
+        .assistance-note {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .contact-row i {
+            margin-right: 4px;
+        }
+
+        .contact-divider {
+            color: #e5e7eb;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding-top: 20px;
+        }
+
+        .stats-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background-color: #e5e7eb;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1d4ed8;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="ri-motorbike-line"></i>
+                <span>RideIndia</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
+                    <li><a href="compare.html">Compare</a></li>
+                    <li><a href="dealers.html">Dealers</a></li>
+                    <li><a href="test-drive.html">Test Drive</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="confirmation-page">
+        <div class="container">
+            <div class="confirmation-card">
+                <h1>Thank You!</h1>
+                <p class="subtitle">Your request has been successfully submitted.</p>
+                <p class="note">We'll be in touch with you soon.</p>
+
+                <div class="conf-number-box">
+                    <span class="conf-label">Confirmation Number</span>
+                    <span class="conf-value" id="confirmation-id">RID730155</span>
+                    <span class="save-note">Please save this number for your reference</span>
+                </div>
+
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <ol>
+                        <li>You will receive a confirmation email shortly</li>
+                        <li>Our team will review your request</li>
+                        <li>We'll contact you within 24 hours to confirm details</li>
+                        <li>Get ready for an amazing experience!</li>
+                    </ol>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="index.html" class="btn btn-primary btn-flex">
+                        <i class="ri-home-4-line"></i> Back to Home
+                    </a>
+                    <a href="bikes.html" class="btn btn-outline btn-flex">
+                        <i class="ri-motorbike-line"></i> Browse Bikes
+                    </a>
+                </div>
+
+                <div class="immediate-assistance">
+                    <p class="assistance-note">Need immediate assistance?</p>
+                    <div class="contact-row">
+                        <span><i class="ri-phone-line"></i> 1800-123-4567</span>
+                        <span class="contact-divider">|</span>
+                        <span><i class="ri-mail-line"></i> info@rideindia.com</span>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <p class="stats-title">Join thousands of satisfied customers</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-val">50,000+</span>
+                            <span class="stat-label">Happy Riders</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">100+</span>
+                            <span class="stat-label">Dealerships</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">4.8/5</span>
+                            <span class="stat-label">Customer Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            if (id) {
+                document.getElementById('confirmation-id').textContent = id;
+            }
+        });
+    </script>
+</body>
+
+</html>

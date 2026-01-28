@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Details - RideIndia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bike-details.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="ri-motorbike-line"></i>
+                <span>RideIndia</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
+                    <li><a href="compare.html">Compare</a></li>
+                    <li><a href="dealers.html">Dealers</a></li>
+                    <li><a href="test-drive.html">Test Drive</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="bike-details-main">
+
+        <!-- Loading & Error -->
+        <div id="loading-spinner" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading bike details...</p>
+        </div>
+
+        <div id="error-message" class="error-container hidden">
+            <i class="ri-error-warning-line"></i>
+            <h2>Bike Not Found</h2>
+            <p>Sorry, we couldn't find the bike you're looking for.</p>
+            <a href="bikes.html" class="btn btn-primary">Browse All Bikes</a>
+        </div>
+
+        <div id="bike-content" class="hidden">
+
+            <!-- Breadcrumb / Back -->
+            <div class="container" style="padding-top: 20px;">
+                <a href="bikes.html" class="back-link"><i class="ri-arrow-left-line"></i> Back to Bikes</a>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="details-hero">
+                <div class="container">
+                    <div class="hero-grid">
+                        <!-- Left: Image & Colors -->
+                        <div class="hero-left">
+                            <div class="hero-image-container">
+                                <img id="bike-image" src="" alt="Bike Name">
+                                <span id="bike-type-badge" class="badge"></span>
+                            </div>
+
+                            <div class="colors-section">
+                                <h3>Available Colors</h3>
+                                <div id="colors-container" class="colors-container">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Info & Actions -->
+                        <div class="hero-right">
+                            <span id="bike-category" class="category-tag"></span>
+                            <h1 id="bike-name"></h1>
+                            <p id="bike-tagline" class="tagline"></p>
+
+                            <div class="price-block">
+                                <span id="bike-price" class="price"></span>
+                                <span class="price-label">Ex-showroom price</span>
+                            </div>
+
+                            <div class="stats-box">
+                                <div class="stat-item">
+                                    <strong id="spec-power"></strong>
+                                    <span>Power</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <strong id="spec-range"></strong>
+                                    <span id="range-label">Range</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-item">
+                                    <strong id="spec-top-speed"></strong>
+                                    <span>Top Speed</span>
+                                </div>
+                            </div>
+
+                            <div class="features-summary">
+                                <h3>Key Features</h3>
+                                <ul id="features-list" class="features-checklist">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+
+                            <div class="action-buttons-grid">
+                                <button onclick="window.location.href='test-drive.html'"
+                                    class="btn btn-primary btn-block">Book Test Drive</button>
+                                <button class="btn btn-outline btn-block">Full Specifications</button>
+                                <button id="compare-btn" class="btn btn-outline-gray btn-block">Compare</button>
+                                <button onclick="window.location.href='dealers.html'"
+                                    class="btn btn-outline-gray btn-block">Find Dealer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Grid: Specs & Sidebar -->
+            <section class="content-section">
+                <div class="container">
+                    <div class="content-grid">
+
+                        <!-- Left: Details -->
+                        <div class="main-details">
+                            <div class="section-card">
+                                <h2>Technical Specifications</h2>
+                                <table class="specs-table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Engine / Motor</td>
+                                            <td id="detail-power-row"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Power</td>
+                                            <td id="detail-power"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Top Speed</td>
+                                            <td id="detail-top-speed"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Range / Mileage</td>
+                                            <td id="detail-range"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmission</td>
+                                            <td id="detail-transmission"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brakes (Front/Rear)</td>
+                                            <td id="detail-brakes"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Weight</td>
+                                            <td id="detail-weight"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="section-card">
+                                <h2>Features & Equipment</h2>
+                                <div id="equipment-grid" class="equipment-grid">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Sidebar -->
+                        <aside class="sidebar">
+                            <div class="sidebar-card interested-card">
+                                <h3>Interested?</h3>
+                                <button onclick="window.location.href='test-drive.html'"
+                                    class="btn btn-primary btn-block">Book Test Drive</button>
+                                <button onclick="window.location.href='dealers.html'"
+                                    class="btn btn-outline btn-block">Find Nearest Dealer</button>
+                                <button class="btn btn-outline btn-block">Compare Models</button>
+                            </div>
+
+                            <div class="sidebar-card status-card">
+                                <h3>Stock Status</h3>
+                                <span class="stock-badge in-stock"><i class="ri-checkbox-circle-fill"></i> In
+                                    Stock</span>
+                            </div>
+
+                            <div class="sidebar-card help-card">
+                                <h3>Need Help?</h3>
+                                <p>Our team is ready to assist you with any questions.</p>
+                                <button onclick="window.location.href='support.html'"
+                                    class="btn btn-primary btn-block">Contact Support</button>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Similar Bikes -->
+            <section class="similar-bikes-section">
+                <div class="container">
+                    <h2>Similar Bikes</h2>
+                    <div id="similar-bikes-grid" class="similar-bikes-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="ri-motorbike-line"></i>
+                        <span>RideIndia</span>
+                    </div>
+                    <p class="footer-tagline">Leading the way in electric and petrol bikes. Experience the future of
+                        riding.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html">Browse Bikes</a></li>
+                        <li><a href="compare.html">Compare Models</a></li>
+                        <li><a href="dealers.html">Find Dealers</a></li>
+                        <li><a href="test-drive.html">Book Test Drive</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html?type=electric">Electric Bikes</a></li>
+                        <li><a href="bikes.html?type=petrol">Petrol Bikes</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="ri-phone-line"></i> 1800-123-4567 (Toll Free)</li>
+                        <li><i class="ri-mail-line"></i> info@rideindia.com</li>
+                        <li><i class="ri-map-pin-line"></i> 123 Bike Street, Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 RideIndia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bike-data.js"></script>
+    <script src="js/bike-details.js"></script>
+</body>
+
+</html>

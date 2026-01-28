@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - RideIndia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/support.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="ri-motorbike-line"></i>
+                <span>RideIndia</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
+                    <li><a href="compare.html">Compare</a></li>
+                    <li><a href="dealers.html">Dealers</a></li>
+                    <li><a href="test-drive.html">Test Drive</a></li>
+                    <li><a href="support.html" class="active">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="support-hero">
+            <div class="container">
+                <h1>How Can We Help You?</h1>
+                <p>We're here to assist you with any questions or concerns</p>
+            </div>
+        </section>
+
+        <div class="support-container">
+            <section class="contact-cards-grid">
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p class="info-text">Mon-Sat, 9AM-7PM</p>
+                    <a href="tel:1800-123-4567" class="value-link">1800-123-4567</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="ri-mail-line"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p class="info-text">Response within 24hrs</p>
+                    <a href="mailto:support@rideindia.com" class="value-link">support@rideindia.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="ri-chat-smile-2-line"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p class="info-text">Available 24/7</p>
+                    <a href="#" class="value-link">Start Chat</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p class="info-text">100+ Locations</p>
+                    <a href="dealers.html" class="value-link">Find Dealer</a>
+                </div>
+            </section>
+
+            <div class="support-main-content">
+                <section class="message-form-section">
+                    <h2>Send Us a Message</h2>
+                    <form id="support-contact-form" class="support-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Name <span class="required">*</span></label>
+                                <input type="text" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="required">*</span></label>
+                                <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category <span class="required">*</span></label>
+                                <select id="category" required>
+                                    <option value="" disabled selected>Select category</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="service">Service & Maintenance</option>
+                                    <option value="booking">Booking Status</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="subject">Subject <span class="required">*</span></label>
+                                <input type="text" id="subject" placeholder="Brief subject of your enquiry" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">Message <span class="required">*</span></label>
+                                <textarea id="message" rows="5" placeholder="Please describe your enquiry in detail..."
+                                    required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-send">
+                            <i class="ri-send-plane-fill"></i> Send Message
+                        </button>
+                    </form>
+                </section>
+
+                <aside class="support-sidebar">
+                    <div class="sidebar-widget">
+                        <h3><i class="ri-time-line"></i> Business Hours</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Friday</td>
+                                <td>9:00 AM - 7:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>9:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="sidebar-widget resource-widget">
+                        <h3><i class="ri-file-text-line"></i> Resources</h3>
+                        <ul class="resource-list">
+                            <li><a href="#">Owner's Manual</a></li>
+                            <li><a href="#">Service Schedule</a></li>
+                            <li><a href="#">Warranty Information</a></li>
+                            <li><a href="#">User Guides</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget emergency-widget">
+                        <h3>Emergency Roadside Assistance</h3>
+                        <p>24/7 Support Available</p>
+                        <a href="tel:1800-987-6543" class="btn-emergency">Call 1800-987-6543</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <section class="faq-section bg-light">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="subtitle">Find quick answers to common questions</p>
+
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>What documents do I need for purchasing a bike?</h4>
+                        </div>
+                        <p>You need a valid ID proof (Aadhaar/PAN), address proof, and passport-size photographs. For
+                            financing, additional income proof may be required.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>Do you offer home delivery?</h4>
+                        </div>
+                        <p>Yes, we offer doorstep delivery for all our bikes. Contact your nearest dealer for more
+                            details.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>What is the warranty period?</h4>
+                        </div>
+                        <p>All our bikes come with a standard 2-year warranty or 30,000 km (whichever comes first).
+                            Extended warranty options are also available.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>How long does the test drive take?</h4>
+                        </div>
+                        <p>A typical test drive lasts 30-45 minutes, giving you ample time to experience the bike.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>Do you offer exchange programs?</h4>
+                        </div>
+                        <p>Yes, we have attractive exchange offers. Bring your old bike to any dealership for a free
+                            evaluation.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <i class="ri-question-line"></i>
+                            <h4>What are the charging options for electric bikes?</h4>
+                        </div>
+                        <p>Electric bikes can be charged at home using a standard 15A socket. We also provide
+                            information about public charging stations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="ri-motorbike-line"></i>
+                        <span>RideIndia</span>
+                    </div>
+                    <p class="footer-tagline">Leading the way in electric and petrol bikes. Experience the future of
+                        riding.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-twitter-x-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html">Browse Bikes</a></li>
+                        <li><a href="compare.html">Compare Models</a></li>
+                        <li><a href="dealers.html">Find Dealers</a></li>
+                        <li><a href="test-drive.html">Book Test Drive</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html?type=electric">Electric Bikes</a></li>
+                        <li><a href="bikes.html?type=petrol">Petrol Bikes</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="ri-phone-line"></i> 1800-123-4567 (Toll Free)</li>
+                        <li><i class="ri-mail-line"></i> info@rideindia.com</li>
+                        <li><i class="ri-map-pin-line"></i> 123 Bike Street, Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 RideIndia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/support.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Test Drive - RideIndia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/test-drive.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="ri-motorbike-line"></i>
+                <span>RideIndia</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bikes.html">Bikes</a></li>
+                    <li><a href="compare.html">Compare</a></li>
+                    <li><a href="dealers.html">Dealers</a></li>
+                    <li><a href="test-drive.html" class="active">Test Drive</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="test-drive-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Book a Test Drive</h1>
+                <p>Experience the ride yourself. Fill in your details and we'll get back to you.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="test-drive-form">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="ri-user-line"></i>
+                            <h3>Personal Information</h3>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullname">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullname" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-icon-wrapper">
+                                    <i class="ri-mail-line"></i>
+                                    <input type="email" id="email" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <div class="input-icon-wrapper">
+                                    <i class="ri-phone-line"></i>
+                                    <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Test Drive Details -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="ri-motorbike-line"></i>
+                            <h3>Test Drive Details</h3>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bike-select">Select Bike <span class="required">*</span></label>
+                                <select id="bike-select" required>
+                                    <option value="">Choose a bike</option>
+                                    <!-- Populated by JS -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="dealer-select">Preferred Dealer <span class="required">*</span></label>
+                                <div class="input-icon-wrapper">
+                                    <i class="ri-map-pin-line"></i>
+                                    <select id="dealer-select" required style="padding-left: 40px;">
+                                        <option value="">Choose a dealer</option>
+                                        <!-- Populated by JS -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Preferred Date <span class="required">*</span></label>
+                                <div class="input-icon-wrapper">
+                                    <i class="ri-calendar-line"></i>
+                                    <input type="date" id="date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time <span class="required">*</span></label>
+                                <select id="time" required>
+                                    <option value="">Choose a time slot</option>
+                                    <option value="morning">Morning (10:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM - 03:00 PM)</option>
+                                    <option value="evening">Evening (03:00 PM - 06:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Message -->
+                    <div class="form-group full-width">
+                        <label for="message">Additional Message (Optional)</label>
+                        <textarea id="message" rows="4"
+                            placeholder="Any specific requirements or questions..."></textarea>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="form-group full-width terms-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            <span class="terms-text">I agree to the terms and conditions and consent to being contacted
+                                by RideIndia regarding my test drive request. <span class="required">*</span></span>
+                        </label>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Book Test Drive</button>
+                        <button type="button" class="btn btn-outline btn-large"
+                            onclick="window.location.href='index.html'">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ri-calendar-check-line"></i>
+                    </div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Choose your convenient date and time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ri-motorbike-line"></i>
+                    </div>
+                    <h3>Expert Guidance</h3>
+                    <p>Our team will guide you through the experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                    <h3>Multiple Locations</h3>
+                    <p>Test drive at your nearest dealer</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="ri-motorbike-line"></i>
+                        <span>RideIndia</span>
+                    </div>
+                    <p class="footer-tagline">Leading the way in electric and petrol bikes. Experience the future of
+                        riding.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html">Browse Bikes</a></li>
+                        <li><a href="compare.html">Compare Models</a></li>
+                        <li><a href="dealers.html">Find Dealers</a></li>
+                        <li><a href="test-drive.html">Book Test Drive</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="bikes.html?type=electric">Electric Bikes</a></li>
+                        <li><a href="bikes.html?type=petrol">Petrol Bikes</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="ri-phone-line"></i> 1800-123-4567 (Toll Free)</li>
+                        <li><i class="ri-mail-line"></i> info@rideindia.com</li>
+                        <li><i class="ri-map-pin-line"></i> 123 Bike Street, Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 RideIndia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bike-data.js"></script>
+    <script src="js/dealer-data.js"></script>
+    <script src="js/test-drive.js"></script>
+</body>
+
+</html>
