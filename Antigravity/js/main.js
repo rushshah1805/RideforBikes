@@ -118,19 +118,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // GTM: Track footer link clicks
-    document.querySelectorAll('.footer-links a, .social-links a').forEach(link => {
+    document.querySelectorAll('.footer-links a').forEach(link => {
         link.addEventListener('click', function(e) {
             const linkText = this.textContent.trim();
             const linkUrl = this.getAttribute('href');
-            const linkType = this.closest('.social-links') ? 'social' : 'footer';
-            const ariaLabel = this.getAttribute('aria-label') || '';
             
             dataLayer.push({
                 event: 'footerLinkClick',
-                linkType: linkType,
-                linkText: linkText || ariaLabel,
+                linkType: 'footer',
+                linkText: linkText,
                 linkUrl: linkUrl,
                 section: 'footer'
+            });
+        });
+    });
+
+    // GTM: Track social media clicks
+    document.querySelectorAll('.social-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const ariaLabel = this.getAttribute('aria-label') || '';
+            const linkUrl = this.getAttribute('href');
+            
+            dataLayer.push({
+                event: 'socialMediaClick',
+                socialPlatform: ariaLabel.toLowerCase(),
+                socialAction: 'click',
+                socialSection: 'footer',
+                clickUrl: linkUrl,
+                linkType: 'social'
             });
         });
     });
