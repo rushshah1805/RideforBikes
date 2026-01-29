@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
         totalBikes: bikeCards.length
     });
 
+    // GTM: User Journey Start - User lands on bikes page
+    dataLayer.push({
+        event: 'userJourneyStart',
+        journeyStep: 'bikes_catalog_entry',
+        journeyAction: 'page_view',
+        pageType: 'bikesCatalog',
+        totalBikes: bikeCards.length,
+        entrySource: document.referrer || 'direct'
+    });
+
     // Check URL parameters for initial filter
     const urlParams = new URLSearchParams(window.location.search);
     const typeParam = urlParams.get('type');
@@ -41,6 +51,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 filterLabel: filterLabel,
                 filterAction: 'apply'
             });
+
+            // GTM: User Journey Step - Filter applied
+            dataLayer.push({
+                event: 'userJourneyStep',
+                journeyStep: 'filter_interaction',
+                journeyAction: 'bike_type_filter',
+                filterType: 'bikeType',
+                filterValue: currentBikeType,
+                filterLabel: filterLabel
+            });
+
+            // GTM: Filter Interaction Event
+            dataLayer.push({
+                event: 'filterInteraction',
+                filterType: 'bikeType',
+                filterValue: currentBikeType,
+                filterAction: 'apply'
+            });
             
             applyFilters();
         });
@@ -58,6 +86,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 filterType: 'priceRange',
                 filterValue: currentPriceRange,
                 filterLabel: filterLabel,
+                filterAction: 'apply'
+            });
+
+            // GTM: User Journey Step - Price filter applied
+            dataLayer.push({
+                event: 'userJourneyStep',
+                journeyStep: 'filter_interaction',
+                journeyAction: 'price_range_filter',
+                filterType: 'priceRange',
+                filterValue: currentPriceRange,
+                filterLabel: filterLabel
+            });
+
+            // GTM: Filter Interaction Event
+            dataLayer.push({
+                event: 'filterInteraction',
+                filterType: 'priceRange',
+                filterValue: currentPriceRange,
                 filterAction: 'apply'
             });
             
@@ -82,6 +128,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 bikeId: bikeId,
                 clickAction: 'viewDetails',
                 clickUrl: this.getAttribute('href')
+            });
+
+            // GTM: User Journey Step - Bike details view
+            dataLayer.push({
+                event: 'userJourneyStep',
+                journeyStep: 'bike_selection',
+                journeyAction: 'view_details',
+                bikeName: bikeName,
+                bikeCategory: bikeCategory,
+                bikePrice: bikePrice,
+                bikeId: bikeId,
+                destinationUrl: this.getAttribute('href')
+            });
+
+            // GTM: Bike Comparison Event
+            dataLayer.push({
+                event: 'bikeComparison',
+                bikeName: bikeName,
+                bikeCategory: bikeCategory,
+                bikePrice: bikePrice,
+                comparisonAction: 'view_details',
+                bikeId: bikeId
             });
         });
     });
@@ -120,6 +188,18 @@ document.addEventListener('DOMContentLoaded', function () {
             priceRangeFilter: currentPriceRange,
             visibleBikes: visibleCount,
             totalBikes: bikeCards.length
+        });
+
+        // GTM: User Journey Step - Filter results displayed
+        dataLayer.push({
+            event: 'userJourneyStep',
+            journeyStep: 'filter_results',
+            journeyAction: 'results_displayed',
+            bikeTypeFilter: currentBikeType,
+            priceRangeFilter: currentPriceRange,
+            visibleBikes: visibleCount,
+            totalBikes: bikeCards.length,
+            conversionRate: (visibleCount / bikeCards.length * 100).toFixed(1)
         });
     }
 });
